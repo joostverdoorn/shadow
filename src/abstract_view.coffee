@@ -1,44 +1,32 @@
 class AbstractView
 
-  @absurd: Absurd()
+  # This method will cache the styles from the top down
+  @style: (view, css) ->
+    # return @css if @css? # Return the cached version, if any
 
-  @html:
+    if view is AbstractView # If we are at the top
+      return css
+    else
+      console.log view.name
+      base = view::constructor.css
+      for k in Object.keys(css)
+        base[k] = css[k]
+      return base
+
+
+
+  @html: () ->
     span: "AbstractView"
 
-  @css:
+  @css: @style @,
     "font-family": "monospace"
     "display": "inline-view"
 
-  @setComponent: ( name, component ) ->
-    fullName = ...
-    component.html[fullName] = component.html
-    component.css[name] = component.css
 
+  @Component: Shadow.createComponent(@)
 
-  # Component: @absurd.component @name,
-      # ".shadow-abstract-view"
+  constructor: ( exports = {} ) ->
+    @exports = exports
 
-    # constructor: ( exports ) ->
-    #   @populate()
-    #   rivets.bind(@el, exports)
-
-
-  @style: ( css ) ->
-    style = {}
-    style[@constructor.name] = css
-    @absurd.add(style)
-    return style
-
-  @html: ( html ) ->
-
-
-  constructor: ( item ) ->
-    @element = @_createElement()
-    @exports = {}
-
-    @component = @Component()
-
-  _createElement: ( ) ->
-    element = @Component(exports).el
-    return element
-
+    @component = @constructor.Component(@exports)
+    # console.log @component.el

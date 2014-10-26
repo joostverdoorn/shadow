@@ -16,7 +16,7 @@
   "main": "dist/Shadow.js",
   "dependencies": {
     "rivets": "~0.6.10",
-    "absurd": "~0.3.139"
+    "absurd": "master"
   },
   "devDependencies": {
     "sonic": "joostverdoorn/sonic#develop"
