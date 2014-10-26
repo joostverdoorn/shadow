@@ -1,0 +1,1 @@
+class ExpandableView extends AbstractView
