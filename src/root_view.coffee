@@ -1,26 +1,36 @@
 class RootView extends ExpandableView
 
-  @html:
-    "div[rv-child='view']": "RootView: { component.el }"
-  @css: @style @,
-    "position":   "absolute"
+  @Component: Shadow.absurd.component @name,
+    html:
+      "div.shadow-abstract-view
+            .shadow-expandable-view
+            .shadow-root-view
+            .expander":
+        "div.child[rv-child='view.element']": ""
 
-    "top":        "0"
-    "left":       "0"
-    "width":      "100%"
-    "height":     "100%"
-    "background": "rgba(0, 0, 0, .6)"
+    css:
+      ".shadow-root-view":
+        "&.expander, >.expander":
+          "&[data-expanded='true']":
+            "color": "pink"
 
-    "> .child":
-      "margin": "0 auto"
+            "position":   "absolute"
 
+            "top":        "0"
+            "left":       "0"
 
-  @Component: Shadow.createComponent(@)
+            "width":      "100%"
+            "height":     "100%"
 
-  constructor: ( item, container ) ->
-    @view = Shadow.createView(item)
-    exports =
-      view: @view.component.el
-      container: container
-    super exports
+            "background": "rgba(0, 0, 0, .6)"
+            "text-align": "center"
 
+        "&.child, >.child":
+          "> *":
+            "background-color": "green"
+
+  @Component().populate()
+
+  constructor: ( item ) ->
+    super item
+    @exports.view = Shadow.createView(item)

@@ -1,12 +1,16 @@
 class NumberView extends AbstractView
 
-  @html:
-    'span[class="number"]': "NumberView: { number}"
-  @css: @style @,
-    "border": "5px solid red"
+  @Component: Shadow.absurd.component @name,
+    html:
+      "div.shadow-abstract-view
+          .shadow-number-view": "Number: { number }"
 
-  @Component: Shadow.createComponent(@)
+    css:
+      ".shadow-number-view":
+        "border": "5px solid blue"
+
+  @Component().populate()
 
   constructor: ( number ) ->
-    exports = number: number
-    super exports
+    super number
+    @number = @exports.number = number

@@ -1,16 +1,17 @@
 Shadow.factory = ( exports ) ->
     exports._ = Shadow
 
-    exports.AbstractView = AbstractView
-    exports.RootView = RootView
+    exports.AbstractView   = AbstractView
+    exports.RootView       = RootView
     exports.ExpandableView = ExpandableView
 
-    exports.NumberView = NumberView
+    exports.NumberView     = NumberView
 
-    exports.show = Shadow.show
-    exports.attachers = Shadow.attachers
+    exports.rootView       = Shadow.rootView
+    exports.show           = Shadow.show
+    exports.attachers      = Shadow.attachers
 
-    exports.absurd = Shadow.absurd
+    exports.absurd         = Shadow.absurd
 
 
 # Exports Shadow for CommonJS, AMD and the browser.
