@@ -9,10 +9,10 @@ Shadow.factory = ( exports ) ->
 
     exports.rootView       = Shadow.rootView
     exports.show           = Shadow.show
+    exports.listen         = Shadow.listen
     exports.attachers      = Shadow.attachers
 
     exports.absurd         = Shadow.absurd
-
 
 # Exports Shadow for CommonJS, AMD and the browser.
 if typeof exports == 'object'
