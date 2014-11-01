@@ -1,0 +1,348 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'coffee-script' ]
+2 info using npm@1.4.4
+3 info using node@v0.10.25
+4 verbose node symlink /usr/bin/node
+5 verbose cache add [ 'coffee-script', null ]
+6 verbose cache add name=undefined spec="coffee-script" args=["coffee-script",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'coffee-script',
+7 verbose parsed url   path: 'coffee-script',
+7 verbose parsed url   href: 'coffee-script' }
+8 silly lockFile ab358269-coffee-script coffee-script
+9 verbose lock coffee-script /home/joost/.npm/ab358269-coffee-script.lock
+10 silly lockFile ab358269-coffee-script coffee-script
+11 silly lockFile ab358269-coffee-script coffee-script
+12 verbose addNamed [ 'coffee-script', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 53951495-coffee-script coffee-script@
+15 verbose lock coffee-script@ /home/joost/.npm/53951495-coffee-script.lock
+16 silly addNameRange { name: 'coffee-script', range: '*', hasData: false }
+17 verbose url raw coffee-script
+18 verbose url resolving [ 'https://registry.npmjs.org/', './coffee-script' ]
+19 verbose url resolved https://registry.npmjs.org/coffee-script
+20 info trying registry request attempt 1 at 04:57:49
+21 verbose etag "CK60GKFBPIB3RXA1IRES83CJS"
+22 http GET https://registry.npmjs.org/coffee-script
+23 http 200 https://registry.npmjs.org/coffee-script
+24 silly registry.get cb [ 200,
+24 silly registry.get   { date: 'Sat, 01 Nov 2014 03:57:50 GMT',
+24 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 silly registry.get     etag: '"CQS5CH60OCCSAVZFPZFY9BRZK"',
+24 silly registry.get     'content-type': 'application/json',
+24 silly registry.get     'cache-control': 'max-age=60',
+24 silly registry.get     'content-length': '32469',
+24 silly registry.get     'accept-ranges': 'bytes',
+24 silly registry.get     via: '1.1 varnish',
+24 silly registry.get     age: '0',
+24 silly registry.get     'x-served-by': 'cache-ams4126-AMS',
+24 silly registry.get     'x-cache': 'HIT',
+24 silly registry.get     'x-cache-hits': '1',
+24 silly registry.get     'x-timer': 'S1414814270.116470,VS0,VE386',
+24 silly registry.get     vary: 'Accept',
+24 silly registry.get     'keep-alive': 'timeout=10, max=50',
+24 silly registry.get     connection: 'Keep-Alive' } ]
+25 silly addNameRange number 2 { name: 'coffee-script', range: '*', hasData: true }
+26 silly addNameRange versions [ 'coffee-script',
+26 silly addNameRange   [ '0.7.0',
+26 silly addNameRange     '0.7.1',
+26 silly addNameRange     '0.7.2',
+26 silly addNameRange     '0.9.0',
+26 silly addNameRange     '0.9.1',
+26 silly addNameRange     '0.9.2',
+26 silly addNameRange     '0.9.3',
+26 silly addNameRange     '0.9.4',
+26 silly addNameRange     '0.9.5',
+26 silly addNameRange     '0.9.6',
+26 silly addNameRange     '1.0.0',
+26 silly addNameRange     '1.0.1',
+26 silly addNameRange     '1.1.0',
+26 silly addNameRange     '1.1.1',
+26 silly addNameRange     '1.1.2',
+26 silly addNameRange     '1.1.3',
+26 silly addNameRange     '1.2.0',
+26 silly addNameRange     '1.3.0',
+26 silly addNameRange     '1.3.1',
+26 silly addNameRange     '1.3.2',
+26 silly addNameRange     '1.3.3',
+26 silly addNameRange     '1.4.0',
+26 silly addNameRange     '1.5.0',
+26 silly addNameRange     '1.6.0',
+26 silly addNameRange     '1.6.1',
+26 silly addNameRange     '1.6.2',
+26 silly addNameRange     '1.6.3',
+26 silly addNameRange     '1.7.0',
+26 silly addNameRange     '1.7.1',
+26 silly addNameRange     '1.8.0' ] ]
+27 verbose addNamed [ 'coffee-script', '1.8.0' ]
+28 verbose addNamed [ '1.8.0', '1.8.0' ]
+29 silly lockFile d0d79082-coffee-script-1-8-0 coffee-script@1.8.0
+30 verbose lock coffee-script@1.8.0 /home/joost/.npm/d0d79082-coffee-script-1-8-0.lock
+31 silly lockFile d0d79082-coffee-script-1-8-0 coffee-script@1.8.0
+32 silly lockFile d0d79082-coffee-script-1-8-0 coffee-script@1.8.0
+33 silly lockFile 53951495-coffee-script coffee-script@
+34 silly lockFile 53951495-coffee-script coffee-script@
+35 silly resolved [ { name: 'coffee-script',
+35 silly resolved     description: 'Unfancy JavaScript',
+35 silly resolved     keywords: [ 'javascript', 'language', 'coffeescript', 'compiler' ],
+35 silly resolved     author: { name: 'Jeremy Ashkenas' },
+35 silly resolved     version: '1.8.0',
+35 silly resolved     license: 'MIT',
+35 silly resolved     engines: { node: '>=0.8.0' },
+35 silly resolved     directories: { lib: './lib/coffee-script' },
+35 silly resolved     main: './lib/coffee-script/coffee-script',
+35 silly resolved     bin: { coffee: './bin/coffee', cake: './bin/cake' },
+35 silly resolved     preferGlobal: true,
+35 silly resolved     scripts: { test: 'node ./bin/cake test' },
+35 silly resolved     homepage: 'http://coffeescript.org',
+35 silly resolved     bugs: { url: 'https://github.com/jashkenas/coffeescript/issues' },
+35 silly resolved     repository:
+35 silly resolved      { type: 'git',
+35 silly resolved        url: 'git://github.com/jashkenas/coffeescript.git' },
+35 silly resolved     devDependencies:
+35 silly resolved      { 'uglify-js': '~2.2',
+35 silly resolved        jison: '>=0.2.0',
+35 silly resolved        'highlight.js': '~8.0.0',
+35 silly resolved        underscore: '~1.5.2',
+35 silly resolved        docco: '~0.6.2' },
+35 silly resolved     dependencies: { mkdirp: '~0.3.5' },
+35 silly resolved     readme: '            {\n         }   }   {\n        {   {  }  }\n         }   }{  {\n        {  }{  }  }                    _____       __  __\n       { }{ }{  { }                   / ____|     / _|/ _|\n     .- { { }  { }} -.               | |     ___ | |_| |_ ___  ___\n    (  { } { } { } }  )              | |    / _ \\|  _|  _/ _ \\/ _ \\\n    |`-..________ ..-\'|              | |___| (_) | | | ||  __/  __/\n    |                 |               \\_____\\___/|_| |_| \\___|\\___|\n    |                 ;--.\n    |                (__  \\            _____           _       _\n    |                 | )  )          / ____|         (_)     | |\n    |                 |/  /          | (___   ___ _ __ _ _ __ | |_\n    |                 (  /            \\___ \\ / __| \'__| | \'_ \\| __|\n    |                 |/              ____) | (__| |  | | |_) | |_\n    |                 |              |_____/ \\___|_|  |_| .__/ \\__|\n     `-.._________..-\'                                  | |\n                                                        |_|\n\n\n  CoffeeScript is a little language that compiles into JavaScript.\n\n  If you have the Node Package Manager installed:\n  npm install -g coffee-script\n  (Leave off the -g if you don\'t wish to install globally.)\n\n  Or, if you don\'t wish to use npm:\n  sudo bin/cake install\n\n  Execute a script:\n  coffee /path/to/script.coffee\n\n  Compile a script:\n  coffee -c /path/to/script.coffee\n\n  For documentation, usage, and examples, see:\n  http://coffeescript.org/\n\n  To suggest a feature, report a bug, or general discussion:\n  http://github.com/jashkenas/coffeescript/issues/\n\n  If you\'d like to chat, drop by #coffeescript on Freenode IRC,\n  or on webchat.freenode.net.\n\n  The source repository:\n  git://github.com/jashkenas/coffeescript.git\n\n  Top 100 contributors are listed here:\n  http://github.com/jashkenas/coffeescript/contributors\n',
+35 silly resolved     readmeFilename: 'README',
+35 silly resolved     _id: 'coffee-script@1.8.0',
+35 silly resolved     _from: 'coffee-script@' } ]
+36 info install coffee-script@1.8.0 into /usr/lib
+37 info installOne coffee-script@1.8.0
+38 info /usr/lib/node_modules/coffee-script unbuild
+39 verbose tar unpack /home/joost/.npm/coffee-script/1.8.0/package.tgz
+40 silly lockFile ac7c323f-r-lib-node-modules-coffee-script tar:///usr/lib/node_modules/coffee-script
+41 verbose lock tar:///usr/lib/node_modules/coffee-script /home/joost/.npm/ac7c323f-r-lib-node-modules-coffee-script.lock
+42 silly lockFile 41d3aa8c--coffee-script-1-8-0-package-tgz tar:///home/joost/.npm/coffee-script/1.8.0/package.tgz
+43 verbose lock tar:///home/joost/.npm/coffee-script/1.8.0/package.tgz /home/joost/.npm/41d3aa8c--coffee-script-1-8-0-package-tgz.lock
+44 silly gunzTarPerm modes [ '755', '644' ]
+45 silly gunzTarPerm extractEntry package.json
+46 silly gunzTarPerm extractEntry .npmignore
+47 silly gunzTarPerm extractEntry README
+48 silly gunzTarPerm extractEntry README.md
+49 silly gunzTarPerm extractEntry LICENSE
+50 silly gunzTarPerm extractEntry register.js
+51 silly gunzTarPerm extractEntry repl.js
+52 silly gunzTarPerm extractEntry CNAME
+53 silly gunzTarPerm extractEntry bin/cake
+54 silly gunzTarPerm extractEntry bin/coffee
+55 silly gunzTarPerm extractEntry lib/coffee-script/browser.js
+56 silly gunzTarPerm extractEntry lib/coffee-script/grammar.js
+57 silly gunzTarPerm extractEntry lib/coffee-script/helpers.js
+58 silly gunzTarPerm extractEntry lib/coffee-script/index.js
+59 silly gunzTarPerm extractEntry lib/coffee-script/lexer.js
+60 silly gunzTarPerm extractEntry lib/coffee-script/command.js
+61 silly gunzTarPerm extractEntry lib/coffee-script/optparse.js
+62 silly gunzTarPerm extractEntry lib/coffee-script/parser.js
+63 silly gunzTarPerm extractEntry lib/coffee-script/register.js
+64 silly gunzTarPerm extractEntry lib/coffee-script/repl.js
+65 silly gunzTarPerm extractEntry lib/coffee-script/rewriter.js
+66 silly gunzTarPerm extractEntry lib/coffee-script/coffee-script.js
+67 silly gunzTarPerm extractEntry lib/coffee-script/scope.js
+68 silly gunzTarPerm extractEntry lib/coffee-script/cake.js
+69 silly gunzTarPerm extractEntry lib/coffee-script/sourcemap.js
+70 silly gunzTarPerm extractEntry lib/coffee-script/nodes.js
+71 silly gunzTarPerm extractEntry CONTRIBUTING.md
+72 silly lockFile ac7c323f-r-lib-node-modules-coffee-script tar:///usr/lib/node_modules/coffee-script
+73 silly lockFile ac7c323f-r-lib-node-modules-coffee-script tar:///usr/lib/node_modules/coffee-script
+74 silly lockFile 41d3aa8c--coffee-script-1-8-0-package-tgz tar:///home/joost/.npm/coffee-script/1.8.0/package.tgz
+75 silly lockFile 41d3aa8c--coffee-script-1-8-0-package-tgz tar:///home/joost/.npm/coffee-script/1.8.0/package.tgz
+76 info preinstall coffee-script@1.8.0
+77 verbose readDependencies using package.json deps
+78 verbose readDependencies using package.json deps
+79 verbose cache add [ 'mkdirp@~0.3.5', null ]
+80 verbose cache add name=undefined spec="mkdirp@~0.3.5" args=["mkdirp@~0.3.5",null]
+81 verbose parsed url { protocol: null,
+81 verbose parsed url   slashes: null,
+81 verbose parsed url   auth: null,
+81 verbose parsed url   host: null,
+81 verbose parsed url   port: null,
+81 verbose parsed url   hostname: null,
+81 verbose parsed url   hash: null,
+81 verbose parsed url   search: null,
+81 verbose parsed url   query: null,
+81 verbose parsed url   pathname: 'mkdirp@~0.3.5',
+81 verbose parsed url   path: 'mkdirp@~0.3.5',
+81 verbose parsed url   href: 'mkdirp@~0.3.5' }
+82 verbose cache add name="mkdirp" spec="~0.3.5" args=["mkdirp","~0.3.5"]
+83 verbose parsed url { protocol: null,
+83 verbose parsed url   slashes: null,
+83 verbose parsed url   auth: null,
+83 verbose parsed url   host: null,
+83 verbose parsed url   port: null,
+83 verbose parsed url   hostname: null,
+83 verbose parsed url   hash: null,
+83 verbose parsed url   search: null,
+83 verbose parsed url   query: null,
+83 verbose parsed url   pathname: '~0.3.5',
+83 verbose parsed url   path: '~0.3.5',
+83 verbose parsed url   href: '~0.3.5' }
+84 verbose addNamed [ 'mkdirp', '~0.3.5' ]
+85 verbose addNamed [ null, '>=0.3.5-0 <0.4.0-0' ]
+86 silly lockFile c3f0fe9b-mkdirp-0-3-5 mkdirp@~0.3.5
+87 verbose lock mkdirp@~0.3.5 /home/joost/.npm/c3f0fe9b-mkdirp-0-3-5.lock
+88 silly addNameRange { name: 'mkdirp', range: '>=0.3.5-0 <0.4.0-0', hasData: false }
+89 verbose url raw mkdirp
+90 verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp' ]
+91 verbose url resolved https://registry.npmjs.org/mkdirp
+92 info trying registry request attempt 1 at 04:57:50
+93 verbose etag "EX7OC1GRA0A9TYJRE9RXASM1I"
+94 http GET https://registry.npmjs.org/mkdirp
+95 http 200 https://registry.npmjs.org/mkdirp
+96 silly registry.get cb [ 200,
+96 silly registry.get   { date: 'Sat, 01 Nov 2014 03:57:50 GMT',
+96 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+96 silly registry.get     etag: '"8Z5QL0CBCC1VUA9RADLBGAJ89"',
+96 silly registry.get     'content-type': 'application/json',
+96 silly registry.get     'cache-control': 'max-age=60',
+96 silly registry.get     'content-length': '21632',
+96 silly registry.get     'accept-ranges': 'bytes',
+96 silly registry.get     via: '1.1 varnish',
+96 silly registry.get     age: '45',
+96 silly registry.get     'x-served-by': 'cache-ams4139-AMS',
+96 silly registry.get     'x-cache': 'HIT',
+96 silly registry.get     'x-cache-hits': '1',
+96 silly registry.get     'x-timer': 'S1414814270.907076,VS0,VE0',
+96 silly registry.get     vary: 'Accept',
+96 silly registry.get     'keep-alive': 'timeout=10, max=50',
+96 silly registry.get     connection: 'Keep-Alive' } ]
+97 silly addNameRange number 2 { name: 'mkdirp', range: '>=0.3.5-0 <0.4.0-0', hasData: true }
+98 silly addNameRange versions [ 'mkdirp',
+98 silly addNameRange   [ '0.0.1',
+98 silly addNameRange     '0.0.2',
+98 silly addNameRange     '0.0.3',
+98 silly addNameRange     '0.0.4',
+98 silly addNameRange     '0.0.5',
+98 silly addNameRange     '0.0.6',
+98 silly addNameRange     '0.0.7',
+98 silly addNameRange     '0.1.0',
+98 silly addNameRange     '0.2.0',
+98 silly addNameRange     '0.2.1',
+98 silly addNameRange     '0.2.2',
+98 silly addNameRange     '0.3.0',
+98 silly addNameRange     '0.3.1',
+98 silly addNameRange     '0.3.2',
+98 silly addNameRange     '0.3.3',
+98 silly addNameRange     '0.3.4',
+98 silly addNameRange     '0.3.5',
+98 silly addNameRange     '0.4.0',
+98 silly addNameRange     '0.4.1',
+98 silly addNameRange     '0.4.2',
+98 silly addNameRange     '0.5.0' ] ]
+99 verbose addNamed [ 'mkdirp', '0.3.5' ]
+100 verbose addNamed [ '0.3.5', '0.3.5' ]
+101 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+102 verbose lock mkdirp@0.3.5 /home/joost/.npm/67d2df2a-mkdirp-0-3-5.lock
+103 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+104 silly lockFile 67d2df2a-mkdirp-0-3-5 mkdirp@0.3.5
+105 silly lockFile c3f0fe9b-mkdirp-0-3-5 mkdirp@~0.3.5
+106 silly lockFile c3f0fe9b-mkdirp-0-3-5 mkdirp@~0.3.5
+107 silly resolved [ { name: 'mkdirp',
+107 silly resolved     description: 'Recursively mkdir, like `mkdir -p`',
+107 silly resolved     version: '0.3.5',
+107 silly resolved     author:
+107 silly resolved      { name: 'James Halliday',
+107 silly resolved        email: 'mail@substack.net',
+107 silly resolved        url: 'http://substack.net' },
+107 silly resolved     main: './index',
+107 silly resolved     keywords: [ 'mkdir', 'directory' ],
+107 silly resolved     repository:
+107 silly resolved      { type: 'git',
+107 silly resolved        url: 'http://github.com/substack/node-mkdirp.git' },
+107 silly resolved     scripts: { test: 'tap test/*.js' },
+107 silly resolved     devDependencies: { tap: '~0.4.0' },
+107 silly resolved     license: 'MIT',
+107 silly resolved     readme: '# mkdirp\n\nLike `mkdir -p`, but in node.js!\n\n[![build status](https://secure.travis-ci.org/substack/node-mkdirp.png)](http://travis-ci.org/substack/node-mkdirp)\n\n# example\n\n## pow.js\n\n```js\nvar mkdirp = require(\'mkdirp\');\n    \nmkdirp(\'/tmp/foo/bar/baz\', function (err) {\n    if (err) console.error(err)\n    else console.log(\'pow!\')\n});\n```\n\nOutput\n\n```\npow!\n```\n\nAnd now /tmp/foo/bar/baz exists, huzzah!\n\n# methods\n\n```js\nvar mkdirp = require(\'mkdirp\');\n```\n\n## mkdirp(dir, mode, cb)\n\nCreate a new directory and any necessary subdirectories at `dir` with octal\npermission string `mode`.\n\nIf `mode` isn\'t specified, it defaults to `0777 & (~process.umask())`.\n\n`cb(err, made)` fires with the error or the first directory `made`\nthat had to be created, if any.\n\n## mkdirp.sync(dir, mode)\n\nSynchronously create a new directory and any necessary subdirectories at `dir`\nwith octal permission string `mode`.\n\nIf `mode` isn\'t specified, it defaults to `0777 & (~process.umask())`.\n\nReturns the first directory that had to be created, if any.\n\n# install\n\nWith [npm](http://npmjs.org) do:\n\n```\nnpm install mkdirp\n```\n\n# license\n\nMIT\n',
+107 silly resolved     readmeFilename: 'readme.markdown',
+107 silly resolved     bugs: { url: 'https://github.com/substack/node-mkdirp/issues' },
+107 silly resolved     homepage: 'https://github.com/substack/node-mkdirp',
+107 silly resolved     _id: 'mkdirp@0.3.5',
+107 silly resolved     _from: 'mkdirp@~0.3.5' } ]
+108 info install mkdirp@0.3.5 into /usr/lib/node_modules/coffee-script
+109 info installOne mkdirp@0.3.5
+110 info /usr/lib/node_modules/coffee-script/node_modules/mkdirp unbuild
+111 verbose tar unpack /home/joost/.npm/mkdirp/0.3.5/package.tgz
+112 silly lockFile d66f8db9-offee-script-node-modules-mkdirp tar:///usr/lib/node_modules/coffee-script/node_modules/mkdirp
+113 verbose lock tar:///usr/lib/node_modules/coffee-script/node_modules/mkdirp /home/joost/.npm/d66f8db9-offee-script-node-modules-mkdirp.lock
+114 silly lockFile f20d45b5-ost-npm-mkdirp-0-3-5-package-tgz tar:///home/joost/.npm/mkdirp/0.3.5/package.tgz
+115 verbose lock tar:///home/joost/.npm/mkdirp/0.3.5/package.tgz /home/joost/.npm/f20d45b5-ost-npm-mkdirp-0-3-5-package-tgz.lock
+116 silly gunzTarPerm modes [ '755', '644' ]
+117 silly gunzTarPerm extractEntry package.json
+118 silly gunzTarPerm extractEntry .npmignore
+119 silly gunzTarPerm extractEntry LICENSE
+120 silly gunzTarPerm extractEntry index.js
+121 silly gunzTarPerm extractEntry .travis.yml
+122 silly gunzTarPerm extractEntry examples/pow.js
+123 silly gunzTarPerm extractEntry readme.markdown
+124 silly gunzTarPerm extractEntry test/chmod.js
+125 silly gunzTarPerm extractEntry test/perm.js
+126 silly gunzTarPerm extractEntry test/perm_sync.js
+127 silly gunzTarPerm extractEntry test/race.js
+128 silly gunzTarPerm extractEntry test/mkdirp.js
+129 silly gunzTarPerm extractEntry test/return.js
+130 silly gunzTarPerm extractEntry test/return_sync.js
+131 silly gunzTarPerm extractEntry test/root.js
+132 silly gunzTarPerm extractEntry test/sync.js
+133 silly gunzTarPerm extractEntry test/umask.js
+134 silly gunzTarPerm extractEntry test/clobber.js
+135 silly gunzTarPerm extractEntry test/umask_sync.js
+136 silly gunzTarPerm extractEntry test/rel.js
+137 silly lockFile d66f8db9-offee-script-node-modules-mkdirp tar:///usr/lib/node_modules/coffee-script/node_modules/mkdirp
+138 silly lockFile d66f8db9-offee-script-node-modules-mkdirp tar:///usr/lib/node_modules/coffee-script/node_modules/mkdirp
+139 silly lockFile f20d45b5-ost-npm-mkdirp-0-3-5-package-tgz tar:///home/joost/.npm/mkdirp/0.3.5/package.tgz
+140 silly lockFile f20d45b5-ost-npm-mkdirp-0-3-5-package-tgz tar:///home/joost/.npm/mkdirp/0.3.5/package.tgz
+141 info preinstall mkdirp@0.3.5
+142 verbose readDependencies using package.json deps
+143 verbose readDependencies using package.json deps
+144 silly resolved []
+145 verbose about to build /usr/lib/node_modules/coffee-script/node_modules/mkdirp
+146 info build /usr/lib/node_modules/coffee-script/node_modules/mkdirp
+147 verbose linkStuff [ true,
+147 verbose linkStuff   '/usr/lib/node_modules',
+147 verbose linkStuff   false,
+147 verbose linkStuff   '/usr/lib/node_modules/coffee-script/node_modules' ]
+148 info linkStuff mkdirp@0.3.5
+149 verbose linkBins mkdirp@0.3.5
+150 verbose linkMans mkdirp@0.3.5
+151 verbose rebuildBundles mkdirp@0.3.5
+152 info install mkdirp@0.3.5
+153 info postinstall mkdirp@0.3.5
+154 verbose about to build /usr/lib/node_modules/coffee-script
+155 info build /usr/lib/node_modules/coffee-script
+156 verbose linkStuff [ true, '/usr/lib/node_modules', true, '/usr/lib/node_modules' ]
+157 info linkStuff coffee-script@1.8.0
+158 verbose linkBins coffee-script@1.8.0
+159 verbose link bins [ { coffee: './bin/coffee', cake: './bin/cake' },
+159 verbose link bins   '/usr/bin',
+159 verbose link bins   true ]
+160 verbose linkMans coffee-script@1.8.0
+161 verbose rebuildBundles coffee-script@1.8.0
+162 verbose rebuildBundles [ 'mkdirp' ]
+163 info /usr/lib/node_modules/coffee-script unbuild
+164 info preuninstall coffee-script@1.8.0
+165 info uninstall coffee-script@1.8.0
+166 verbose true,/usr/lib/node_modules,/usr/lib/node_modules unbuild coffee-script@1.8.0
+167 verbose /usr/bin,[object Object] binRoot
+168 info postuninstall coffee-script@1.8.0
+169 error Refusing to delete: /usr/bin/coffee not in /usr/lib/node_modules/coffee-script
+File exists: /usr/bin/coffee
+Move it away, and try again.
+170 error System Linux 3.13.0-37-generic
+171 error command "node" "/usr/local/bin/npm" "install" "-g" "coffee-script"
+172 error cwd /home/joost/Documents/Projects/shadow
+173 error node -v v0.10.25
+174 error npm -v 1.4.4
+175 error path /usr/bin/coffee
+176 error code EEXIST
+177 verbose exit [ 1, true ]

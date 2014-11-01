@@ -5,6 +5,13 @@ module.exports = ( grunt ) ->
     'src/abstract_view.coffee'
     'src/expandable_view.coffee'
 
+    'src/null_view.coffee'
+    'src/undefined_view.coffee'
+    'src/string_view.coffee'
+    'src/array_view.coffee'
+    'src/object_view.coffee'
+    'src/boolean_view.coffee'
+
     'src/number_view.coffee'
     'src/root_view.coffee'
 

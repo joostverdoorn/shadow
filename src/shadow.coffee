@@ -22,15 +22,32 @@ Shadow =
       return view if view = attacher(item)
 
   attachers:
+    object: ( item ) ->
+      return null unless typeof item is 'object'
+    array: ( item ) ->
+      return null unless item instanceof Array
+      return new ArrayView(item)
+    null: ( item ) ->
+      return null unless item is undefined
+      return new UndefinedView(item)
+    undefined: ( item ) ->
+      return null unless item is null
+      return new NullView(item)
+    boolean: ( item ) ->
+      return null unless typeof item is 'boolean'
+      return new BooleanView(item)
     number: ( item ) ->
       return null unless typeof item is 'number'
       return new NumberView(item)
+    string: ( item ) ->
+      return null unless typeof item is 'string'
+      return new StringView(item)
 
   init: ( ) ->
     document.onkeyup = ( event ) =>
       console.log event
       if event.which is 192 # '`'
-        @show(3)
+        @show([1,2,3,4,5])
         @rootView.toggle()
 
 

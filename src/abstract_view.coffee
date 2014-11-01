@@ -12,7 +12,7 @@ class AbstractView
 
   @Component().populate()
 
-  constructor: ( item ) ->
+  constructor: ( ) ->
     @exports = {}
 
     @component = @constructor.Component()

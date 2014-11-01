@@ -3,11 +3,12 @@ class NumberView extends AbstractView
   @Component: Shadow.absurd.component @name,
     html:
       "div.shadow-abstract-view
-          .shadow-number-view": "Number: { number }"
+          .shadow-number-view": "{ number }"
 
     css:
       ".shadow-number-view":
-        "border": "5px solid blue"
+        "color": "blue"
+        "font-weight": "bold"
 
   @Component().populate()
 
