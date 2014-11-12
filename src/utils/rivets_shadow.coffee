@@ -59,6 +59,9 @@ rivets.binders['each-*'] =
     @el = el
     @collection = collection
 
+    if @views and @views[key]
+      @binder.delete.call @, key
+
     @views = {}
 
     for key, model of @collection
@@ -69,11 +72,15 @@ rivets.binders['each-*'] =
           key = event.name
           model = event.object[event.name]
 
+          console.log event, event.type
           switch event.type
             when 'add'
               @binder.add.call @, key, model
             when 'delete'
               @binder.delete.call @, key, model
+            when 'update'
+              @binder.delete.call @, key
+              @binder.add.call @, key, model
 
   add: ( key, model ) ->
     modelName = @args[0]
@@ -88,6 +95,7 @@ rivets.binders['each-*'] =
     template = @el.cloneNode true
 
     view = new rivets._.View(template, data, options)
+    @views[key] = view
     view.bind()
 
 
@@ -99,7 +107,10 @@ rivets.binders['each-*'] =
     @marker.parentNode.insertBefore template, previous?.nextSibling
 
   delete: ( key, model ) ->
-    @views[key].unbind()
+    view = @views[key]
+    view.unbind()
+    view.els.forEach ( el ) -> el.remove()
+
     delete @views[key]
 
 rivets.binders.child = ( el, child ) ->
