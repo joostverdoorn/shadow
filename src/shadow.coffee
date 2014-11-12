@@ -26,13 +26,16 @@ Shadow =
     object: ( item ) ->
       return null unless typeof item is 'object'
       return new ObjectView(item)
+    function: ( item ) ->
+      return null unless typeof item is 'function'
+      return new FunctionView(item)
     array: ( item ) ->
       return null unless item instanceof Array
       return new ArrayView(item)
-    null: ( item ) ->
+    undefined: ( item ) ->
       return null unless item is undefined
       return new UndefinedView(item)
-    undefined: ( item ) ->
+    null: ( item ) ->
       return null unless item is null
       return new NullView(item)
     boolean: ( item ) ->

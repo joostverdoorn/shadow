@@ -13,12 +13,12 @@ class AbstractView
       ".shadow-abstract-view":
         "font-family": "monospace"
         "display": "inline-block"
-        "width": "200px"
+        "position": "relative"
 
 
-
-  constructor: ( ) ->
-    @exports = {}
+  constructor: ( item, exports = {} ) ->
+    @exports ||= exports
+    @exports['item'] = item
 
     @element = @constructor.component.el.cloneNode(true)
     rivets.bind(@element, @exports)

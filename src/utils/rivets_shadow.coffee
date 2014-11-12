@@ -27,6 +27,16 @@ rivets.adapters['.'] =
   set: (obj, keypath, value) ->
     obj[keypath] = value
 
+rivets.binders['when'] = ( el, value ) ->
+  console.log el, value
+  if value and @parentElement
+    @parentElement.appendChild(el)
+  else
+    @parentElement ?= el.parentElement
+    el.remove()
+
+
+
 rivets.binders['each-*'] =
   bind: (el) ->
     unless @marker?
@@ -94,6 +104,10 @@ rivets.binders['each-*'] =
     @views[key].unbind()
     delete @views[key]
 
+rivets.formatters.string = ( value, args ) ->
+  return value.toString()
+
+
 rivets.binders.child = ( el, child ) ->
   el.innerHTML = ''
   return unless child?
@@ -108,7 +122,10 @@ rivets.binders.children = ( el, children ) ->
   for child in children
     el.appendChild(child) if child?.nodeName?
 
-rivets.binders.view = ( el, item ) ->
-  el.innerHTML = ''
-  view = Shadow.createView(item)
-  el.appendChild(view.element)
+rivets.binders.view =
+  function: true
+
+  routine: ( el, item ) ->
+    el.innerHTML = ''
+    view = Shadow.createView(item)
+    el.appendChild(view.element)

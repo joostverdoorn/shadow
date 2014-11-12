@@ -5,30 +5,26 @@ class RootView extends ExpandableView
       "div.shadow-abstract-view
             .shadow-expandable-view
             .shadow-root-view
-            .shadow-expander":
+            .shadow-expandee":
         "div.child[rv-view='item']": ""
 
     css:
       ".shadow-root-view":
-        "&.shadow-expander, .shadow-expander":
-          "&[data-expanded='true']":
-            "color": "pink"
+        "&.shadow-expandee, >.shadow-expandee":
+          "color": "pink"
 
-            "position":   "absolute"
+          "position":   "absolute"
 
-            "top":        "0"
-            "left":       "0"
+          "top":        "0"
+          "left":       "0"
 
-            "width":      "100%"
-            "height":     "100%"
+          "width":      "100%"
+          "height":     "100%"
 
-            "background": "rgba(0, 0, 0, .6)"
-            "text-align": "center"
+          "background": "rgba(0, 0, 0, .6)"
+          "text-align": "center"
 
         "&.child, >.child":
           "> *":
             "background-color": "green"
 
-  constructor: ( item ) ->
-    super item
-    @exports.item = item

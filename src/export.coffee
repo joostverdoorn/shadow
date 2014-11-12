@@ -5,7 +5,7 @@ Shadow.factory = ( exports ) ->
     exports.RootView       = RootView
     exports.ExpandableView = ExpandableView
 
-    exports.NumberView     = NumberView
+    # exports.NumberView     = NumberView
 
     exports.rootView       = Shadow.rootView
     exports.show           = Shadow.show

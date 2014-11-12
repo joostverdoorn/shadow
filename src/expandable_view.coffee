@@ -1,36 +1,45 @@
 class ExpandableView extends AbstractView
 
+  @toggle: { "button.shadow-toggle[rv-on-click='toggle']": "+" }
+  @expandee: { "div.shadow-expandee[rv-when='expanded']": "" }
+
   @setComponent
     html:
       "div.shadow-abstract-view
-           .shadow-expandable-view":
-        "div.shadow-expander": ""
+       .shadow-expandable-view": [
+        @toggle,
+        @expandee
+      ]
 
     css:
       ".shadow-expandable-view":
-        "&.shadow-expander, .shadow-expander":
-          "&:not([data-expanded='true'])":
-            "height": "0"
-            "overflow": "hidden"
+        ".shadow-toggle":
+          "background": "rgb(100, 100, 100)"
+          "color": "rgb(240, 240, 240)"
+          "font-size": "16px"
+          "width": "1em"
+          "height": "1em"
+          "padding": "0"
+          "line-height": "1em"
+          "text-align": "center"
+          "border": "1px solid rgb(70, 70, 70)"
+          "border-radius": "4px"
 
   constructor: ( ) ->
     super
 
-    @expanded = false
-
-    if @element.className.indexOf('shadow-expander') isnt -1
-      @expander = @element
-    else @expander = @element.getElementsByClassName('shadow-expander')[0]
+    @exports.expanded = false
+    @exports.toggle = @toggle
 
   expand: ( ) ->
-    @expander.setAttribute('data-expanded', true)
-    @expanded = true
+    @exports.expanded = true
 
   collapse: ( ) ->
-    @expander.removeAttribute('data-expanded')
-    @expanded = false
+    @exports.expanded = false
 
-  toggle: ( ) ->
-    if @expanded
+
+  toggle: ( ) =>
+    console.log 'toggle'
+    if @exports.expanded
       @collapse()
     else @expand()

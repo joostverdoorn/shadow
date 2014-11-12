@@ -1,19 +1,23 @@
 class ObjectView extends ExpandableView
 
+  @expandee:
+    "table.shadow-expandee[rv-if='expanded']":
+      "tbody": {
+        "tr.shadow-object-row[rv-each-entry='item']": [
+          # { "td.key": "{ index }" },
+          { "td.key[rv-view='index']": "" }
+          { "td.value[rv-view='entry']": "" }
+        ]
+
+                }
   @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-expandable-view
           .shadow-object-view": [
+            @toggle,
             "{",
-              "table.shadow-expander":
-                "tbody": {
-                  "tr.shadow-object-row[rv-each-entry='object']": [
-                    # { "td.key": "{ index }" },
-                    { "td.key[rv-view='index']": "" }
-                    { "td.value[rv-view='entry']": "" }
-                  ]
-                }
+            @expandee
             "}"
           ]
 
@@ -25,6 +29,3 @@ class ObjectView extends ExpandableView
         ".shadow-object-row > td.value":
           "color": "blue"
 
-  constructor: ( object ) ->
-    super()
-    @exports.object = object
