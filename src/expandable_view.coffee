@@ -39,7 +39,6 @@ class ExpandableView extends AbstractView
 
 
   toggle: ( ) =>
-    console.log 'toggle'
     if @exports.expanded
       @collapse()
     else @expand()

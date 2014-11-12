@@ -8,14 +8,8 @@ Shadow =
 
   show: ( item ) ->
     if Shadow.rootView?
-      view = Shadow.createView(item)
-      Shadow.rootView.exports.view = view
-    else
-      Shadow.createRootView(item)
-      view = Shadow.rootView.exports.view
-
-    Shadow.rootView.expand()
-    return view
+      Shadow.rootView.exports.item = item
+    else Shadow.createRootView(item)
 
   createView: ( item ) ->
     for key in Object.keys(Shadow.attachers).reverse()
@@ -33,7 +27,7 @@ Shadow =
       return null unless item instanceof Array
       return new ArrayView(item)
     undefined: ( item ) ->
-      return null unless item is undefined
+      return null unless typeof item is 'undefined'
       return new UndefinedView(item)
     null: ( item ) ->
       return null unless item is null
@@ -50,7 +44,6 @@ Shadow =
 
   init: ( ) ->
     document.onkeyup = ( event ) =>
-      console.log event
       if event.which is 192 # '`'
         @show([1,2,3,4,5])
         @rootView.toggle()

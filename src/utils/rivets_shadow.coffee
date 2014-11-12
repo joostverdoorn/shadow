@@ -28,7 +28,6 @@ rivets.adapters['.'] =
     obj[keypath] = value
 
 rivets.binders['when'] = ( el, value ) ->
-  console.log el, value
   if value and @parentElement
     @parentElement.appendChild(el)
   else
@@ -63,7 +62,6 @@ rivets.binders['each-*'] =
     @views = {}
 
     for key, model of @collection
-      console.log key, model
       @binder.add.call @, key, model
 
     Object.observe @collection, ( events ) =>
@@ -103,10 +101,6 @@ rivets.binders['each-*'] =
   delete: ( key, model ) ->
     @views[key].unbind()
     delete @views[key]
-
-rivets.formatters.string = ( value, args ) ->
-  return value.toString()
-
 
 rivets.binders.child = ( el, child ) ->
   el.innerHTML = ''
