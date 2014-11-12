@@ -1,6 +1,6 @@
 class StringView extends AbstractView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-string-view": "\"{ string }\""
@@ -8,9 +8,6 @@ class StringView extends AbstractView
     css:
       ".shadow-string-view":
         "color": "yellow"
-        # "border": "5px solid green"
-
-  @Component().populate()
 
   constructor: ( string ) ->
     super

@@ -1,6 +1,6 @@
 class NumberView extends AbstractView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-number-view": "{ number }"
@@ -9,8 +9,6 @@ class NumberView extends AbstractView
       ".shadow-number-view":
         "color": "blue"
         "font-weight": "bold"
-
-  @Component().populate()
 
   constructor: ( number ) ->
     super number

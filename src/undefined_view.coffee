@@ -1,6 +1,6 @@
 class UndefinedView extends AbstractView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-undefined-view": "undefined"
@@ -8,8 +8,5 @@ class UndefinedView extends AbstractView
     css:
       ".shadow-undefined-view":
         "color": "orange"
-        # "border": "5px solid orange"
-
-  @Component().populate()
 
 

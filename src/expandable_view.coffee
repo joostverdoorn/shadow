@@ -1,29 +1,26 @@
 class ExpandableView extends AbstractView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-abstract-view
            .shadow-expandable-view":
-        "div.expander": ""
+        "div.shadow-expander": ""
 
     css:
       ".shadow-expandable-view":
-        "&.expander, >.expander":
+        "&.shadow-expander, .shadow-expander":
           "&:not([data-expanded='true'])":
             "height": "0"
             "overflow": "hidden"
-
-
-  @Component().populate()
 
   constructor: ( ) ->
     super
 
     @expanded = false
 
-    if @element.className.indexOf('expander') isnt -1
+    if @element.className.indexOf('shadow-expander') isnt -1
       @expander = @element
-    else @expander = @element.getElementsByClassName('expander')[0]
+    else @expander = @element.getElementsByClassName('shadow-expander')[0]
 
   expand: ( ) ->
     @expander.setAttribute('data-expanded', true)

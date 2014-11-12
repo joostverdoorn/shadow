@@ -14,6 +14,7 @@ Shadow =
       Shadow.createRootView(item)
       view = Shadow.rootView.exports.view
 
+    Shadow.rootView.expand()
     return view
 
   createView: ( item ) ->
@@ -24,6 +25,7 @@ Shadow =
   attachers:
     object: ( item ) ->
       return null unless typeof item is 'object'
+      return new ObjectView(item)
     array: ( item ) ->
       return null unless item instanceof Array
       return new ArrayView(item)

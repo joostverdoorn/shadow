@@ -21,7 +21,9 @@ module.exports = ( grunt ) ->
   ]
 
   vendor = [
+    "bower_components/sightglass/index.js"
     "bower_components/rivets/dist/rivets.js"
+    "bower_components/es6-shim/es6-shim.js"
     "bower_components/absurd/client-side/build/absurd.js"
   ]
 

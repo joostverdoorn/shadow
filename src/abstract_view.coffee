@@ -1,8 +1,13 @@
 class AbstractView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent: ( component ) ->
+    @component = Shadow.absurd.component(@name, component)()
+    @component.populate()
+
+
+  @setComponent
     html:
-     "div.shadow-abstract-view":"AbstractView"
+      "div.shadow-abstract-view":"AbstractView"
 
     css:
       ".shadow-abstract-view":
@@ -10,15 +15,12 @@ class AbstractView
         "display": "inline-block"
         "width": "200px"
 
-  @Component().populate()
+
 
   constructor: ( ) ->
     @exports = {}
 
-    @component = @constructor.Component()
-    @component.populate()
+    @element = @constructor.component.el.cloneNode(true)
+    rivets.bind(@element, @exports)
 
-    rivets.bind(@component.el, @exports)
-
-    @element = @component.el
 

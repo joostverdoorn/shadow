@@ -1,34 +1,30 @@
 class ArrayView extends ExpandableView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-expandable-view
           .shadow-array-view": [
             "[",
-            { "dl[]":
-                "dt[rv-each-entry='entries']": "{ entry.index } : { entry.value }" },
-            "]" ]
+              "table.shadow-expander":
+                "tbody": {
+                  "tr.shadow-array-row[rv-each-entry='array']": [
+                    # { "td.key": "{ index }" },
+                    { "td.key[rv-view='index']": "" }
+                    { "td.value[rv-view='entry']": "" }
+                  ]
+                }
+            "]"
+          ]
 
     css:
       ".shadow-array-view":
-        "> .entry:":
+        "text-align": "left"
+        ".shadow-array-row > td.key":
           "color": "red"
-
-        # "border": "5px solid purple"
-
-
-  @Component().populate()
+        ".shadow-array-row > td.value":
+          "color": "blue"
 
   constructor: ( array ) ->
-    super array
-    # @array.map ( )
-    @array = @exports.array = array
-
-    @exports.entries = @array.map ( value, index ) -> { index, value }
-
-
-
-
-  expand: ( ) ->
-
+    super()
+    @exports.array = array

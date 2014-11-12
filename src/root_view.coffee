@@ -1,16 +1,16 @@
 class RootView extends ExpandableView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-abstract-view
             .shadow-expandable-view
             .shadow-root-view
-            .expander":
-        "div.child[rv-child='view.element']": ""
+            .shadow-expander":
+        "div.child[rv-view='item']": ""
 
     css:
       ".shadow-root-view":
-        "&.expander, >.expander":
+        "&.shadow-expander, .shadow-expander":
           "&[data-expanded='true']":
             "color": "pink"
 
@@ -29,8 +29,6 @@ class RootView extends ExpandableView
           "> *":
             "background-color": "green"
 
-  @Component().populate()
-
   constructor: ( item ) ->
     super item
-    @exports.view = Shadow.createView(item)
+    @exports.item = item

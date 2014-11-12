@@ -1,6 +1,6 @@
 class NullView extends AbstractView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-null-view
           .shadow-undefined-view": "null"
@@ -8,7 +8,5 @@ class NullView extends AbstractView
     css:
       ".shadow-null-view":
         "border": "5px solid orange"
-
-  @Component().populate()
 
 

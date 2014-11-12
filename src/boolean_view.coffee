@@ -1,6 +1,6 @@
 class BooleanView extends AbstractView
 
-  @Component: Shadow.absurd.component @name,
+  @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-boolean-view": "Boolean: { boolean }"
@@ -8,9 +8,6 @@ class BooleanView extends AbstractView
     css:
       ".shadow-boolean-view":
         "color": "green"
-        # "border": "5px solid green"
-
-  @Component().populate()
 
   constructor: ( boolean ) ->
     super
