@@ -7,6 +7,6 @@ class UndefinedView extends AbstractView
 
     css:
       ".shadow-undefined-view":
-        "color": "orange"
+        "color": "#fcaf3e"
 
 

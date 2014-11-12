@@ -1,19 +1,21 @@
 class ExpandableView extends AbstractView
 
-  @toggle: { "button.shadow-toggle[rv-on-click='toggle']": "+" }
-  @expandee: { "div.shadow-expandee[rv-when='expanded']": "" }
 
   @setComponent
     html:
       "div.shadow-abstract-view
        .shadow-expandable-view": [
-        @toggle,
-        @expandee
+        { "button.shadow-toggle[rv-on-click='toggle']": "+" }
+        { "div.shadow-expandee[rv-when='expanded']": "" }
       ]
 
     css:
       ".shadow-expandable-view":
+
         ".shadow-toggle":
+          "cursor": "pointer"
+
+        "button.shadow-toggle":
           "background": "rgb(100, 100, 100)"
           "color": "rgb(240, 240, 240)"
           "font-size": "16px"

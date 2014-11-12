@@ -7,5 +7,5 @@ class NumberView extends AbstractView
 
     css:
       ".shadow-number-view":
-        "color": "blue"
-        "font-weight": "bold"
+        "color": "#ad7fa0"
+        # "font-weight": "bold"

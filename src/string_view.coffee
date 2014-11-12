@@ -7,4 +7,5 @@ class StringView extends AbstractView
 
     css:
       ".shadow-string-view":
-        "color": "yellow"
+        "color": "#fce94f"
+        "max-width": "10em"

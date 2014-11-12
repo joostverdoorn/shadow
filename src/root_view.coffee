@@ -25,6 +25,7 @@ class RootView extends ExpandableView
           "text-align": "center"
 
         "&.child, >.child":
-          "> *":
-            "background-color": "green"
+          "padding": ".5em"
+          "display": "inline-block"
+          "background-color": "#2e3436"
 

@@ -3,8 +3,8 @@ class BooleanView extends AbstractView
   @setComponent
     html:
       "div.shadow-abstract-view
-          .shadow-boolean-view": "Boolean: { item }"
+          .shadow-boolean-view": "{ item }"
 
     css:
       ".shadow-boolean-view":
-        "color": "green"
+        "color": "#ef2929"

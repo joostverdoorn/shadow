@@ -15,6 +15,15 @@ class AbstractView
         "display": "inline-block"
         "position": "relative"
 
+        # "-wmso-animation": "fadeInLeft 2s"
+
+      # "@keyframes fadein":
+      #     "from":
+      #       "opacity": "0"
+      #     "to":
+      #       "opacity": "1"
+
+
 
   constructor: ( item, exports = {} ) ->
     @exports ||= exports

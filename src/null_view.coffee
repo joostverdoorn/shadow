@@ -7,6 +7,5 @@ class NullView extends AbstractView
 
     css:
       ".shadow-null-view":
-        "border": "5px solid orange"
-
+        "color": "#fcaf3e"
 

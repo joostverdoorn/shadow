@@ -27,17 +27,12 @@ rivets.adapters['.'] =
   set: (obj, keypath, value) ->
     obj[keypath] = value
 
-rivets.binders['when'] = ( el, value ) ->
-  if value and @parentElement
-    @parentElement.appendChild(el)
-  else
-    @parentElement ?= el.parentElement
-    el.remove()
-
 
 
 rivets.binders['each-*'] =
   bind: (el) ->
+    console.log 'bind'
+
     unless @marker?
       attr = [@view.prefix, @type].join('-').replace '--', '-'
       @marker = document.createComment " rivets: #{@type} "
@@ -45,16 +40,24 @@ rivets.binders['each-*'] =
 
       el.removeAttribute attr
       el.parentNode.insertBefore @marker, el
+
       el.parentNode.removeChild el
+
     else
       for view in @iterated
         view.bind()
     return;
 
   unbind: (el) ->
-    view.unbind() for view in @iterated if @iterated?
+    console.log 'unbind'
+
+    keys = Object.keys(@views)
+    for key in keys
+      @binder.delete.call @, key
 
   routine: (el, collection = []) ->
+    console.log 'routine'
+
     modelName = @args[0]
     @el = el
     @collection = collection
@@ -68,19 +71,19 @@ rivets.binders['each-*'] =
       @binder.add.call @, key, model
 
     Object.observe @collection, ( events ) =>
-        for event in events
-          key = event.name
-          model = event.object[event.name]
+      for event in events
+        key = event.name
+        model = event.object[event.name]
 
-          console.log event, event.type
-          switch event.type
-            when 'add'
-              @binder.add.call @, key, model
-            when 'delete'
-              @binder.delete.call @, key, model
-            when 'update'
-              @binder.delete.call @, key
-              @binder.add.call @, key, model
+        console.log event, event.type
+        switch event.type
+          when 'add'
+            @binder.add.call @, key, model
+          when 'delete'
+            @binder.delete.call @, key, model
+          when 'update'
+            @binder.delete.call @, key
+            @binder.add.call @, key, model
 
   add: ( key, model ) ->
     modelName = @args[0]
