@@ -3,6 +3,7 @@ callbacks = new Map()
 rivets.adapters['.'] =
   # Yes, a bit hacky, but this will do for now.
   observe: (obj, keypath, callback) ->
+    console.log obj, keypath, callback
 
     fn = ( events ) ->
       callback() for event in events when event.name is keypath
@@ -10,18 +11,19 @@ rivets.adapters['.'] =
     unless callbacks.has(obj)
       callbacks.set(obj, {})
 
-    unless callbacks.get(obj)[keypath]
-      callbacks.get(obj)[keypath] = new WeakMap()
+    unless callbacks.get(obj)["rv_" + keypath]
+      callbacks.get(obj)["rv_" + keypath] = new WeakMap()
 
-    callbacks.get(obj)[keypath].set(callback, fn)
+    callbacks.get(obj)["rv_" + keypath].set(callback, fn)
     Object.observe(obj, fn)
 
 
   unobserve: (obj, keypath, callback) ->
-    if fn = callbacks.get(obj)?[keypath]?.get(callback)
+    if fn = callbacks.get(obj)?["rv_"+keypath]?.get(callback)
       Object.unobserve(obj, fn)
 
   get: (obj, keypath) ->
+    console.log keypath, obj
     return obj[keypath]
 
   set: (obj, keypath, value) ->
@@ -30,8 +32,11 @@ rivets.adapters['.'] =
 
 
 rivets.binders['each-*'] =
+  function: true
+
   bind: (el) ->
     console.log 'bind'
+    @exports = new Map()
 
     unless @marker?
       attr = [@view.prefix, @type].join('-').replace '--', '-'
@@ -67,30 +72,46 @@ rivets.binders['each-*'] =
 
     @views = {}
 
-    for key, model of @collection
-      @binder.add.call @, key, model
+    for key in Object.keys(@collection)
+      @binder.add.call @, key, @collection[key]
 
     Object.observe @collection, ( events ) =>
       for event in events
-        key = event.name
-        model = event.object[event.name]
+        eventKey = event.name
+        eventModel = event.object[event.name]
 
-        console.log event, event.type
+        # console.log event, event.type
         switch event.type
           when 'add'
-            @binder.add.call @, key, model
+            @binder.add.call @, eventKey, eventModel
           when 'delete'
-            @binder.delete.call @, key, model
+            @binder.delete.call @, eventKey, eventModel
           when 'update'
             @binder.delete.call @, key
-            @binder.add.call @, key, model
+            @binder.add.call @, key, eventModel
+            # console.log key, eventKey
+            # @exports.get(key)[eventKey] = eventModel
 
   add: ( key, model ) ->
     modelName = @args[0]
     data =
       index: key
-
     data[modelName] = model
+
+    @exports.set(key, data)
+
+    Object.observe data, (events) =>
+      for event in events
+        eventKey = event.name
+        eventModel = event.object[event.name]
+
+        console.log eventKey, eventModel, event
+        @collection[key] = eventModel
+
+    # Object.observe @collection, (events) =>
+    #   for event in events
+    #     eventKey = event.name
+    #     event
 
     options = @view.options()
     options.preloadData = true
@@ -137,3 +158,16 @@ rivets.binders.view =
     el.innerHTML = ''
     view = Shadow.createView(item)
     el.appendChild(view.element)
+
+rivets.binders.eval =
+  function: true
+
+  bind: (el) ->
+    el.onchange = ( event ) =>
+      @model[@keypath] = eval(el.value)
+
+  unbind: (el) ->
+    el.onchange = null
+
+  routine: ( el, item ) ->
+    el.value = item
