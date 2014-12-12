@@ -1,27 +1,45 @@
-class FunctionView extends ExpandableView
-
-  @expandee:
-    "div.shadow-expandee[rv-if='expanded']": "{ item }"
-      # " { item | string } "
+class FunctionView extends EnumerableView
 
   @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-expandable-view
-          .shadow-function-view": [
-              "function",
-              @toggle,
-              @expandee,
+          .shadow-enumerable-view
+          .shadow-function-view":
+            "table": [
+              { "thead[rv-on-click='toggle']":
+                  "tr":
+                    "td[colspan='2']": "function { name }"
+              }
+
+              { "tbody[rv-if='expanded']": {
+                  "tr[rv-each-entry='item']": [
+                    { "td.key[rv-text='index']": "" }
+                    { "td.value[rv-view='entry']": "" }
+                  ]
+                }
+              }
             ]
 
-    css:
-      ".shadow-function-view":
-        "text-align": "left"
-        ".shadow-function-row > td.key":
-          "color": "red"
-        ".shadow-function-row > td.value":
-          "color": "blue"
+  # @expandee:
+    # html:
+    #   "div.shadow-abstract-view
+    #       .shadow-expandable-view
+    #       .shadow-function-view": [
+    #           "function",
+    #           @toggle,
+    #           @expandee,
+    #         ]
+
+    # css:
+    #   ".shadow-function-view":
+    #     "text-align": "left"
+    #     ".shadow-function-row > td.key":
+    #       "color": "red"
+    #     ".shadow-function-row > td.value":
+    #       "color": "blue"
 
   constructor: ( item ) ->
-    item = item.toString()
+    @exports ||= {}
+    @exports.name ||= item.name
     super item

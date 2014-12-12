@@ -19,13 +19,13 @@ Shadow =
   attachers:
     object: ( item ) ->
       return null unless typeof item is 'object'
-      return new ObjectView(item)
+      return new EnumerableView(item)
     function: ( item ) ->
       return null unless typeof item is 'function'
       return new FunctionView(item)
     array: ( item ) ->
       return null unless item instanceof Array
-      return new ArrayView(item)
+      return new EnumerableView(item)
     undefined: ( item ) ->
       return null unless typeof item is 'undefined'
       return new UndefinedView(item)
@@ -45,7 +45,7 @@ Shadow =
   init: ( ) ->
     document.onkeyup = ( event ) =>
       if event.which is 192 # '`'
-        @show([1,2,3,4,5])
+        @show(AbstractView)
         @rootView.toggle()
 
 

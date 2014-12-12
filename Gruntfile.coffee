@@ -8,8 +8,7 @@ module.exports = ( grunt ) ->
     'src/null_view.coffee'
     'src/undefined_view.coffee'
     'src/string_view.coffee'
-    'src/array_view.coffee'
-    'src/object_view.coffee'
+    'src/enumerable_view.coffee'
     'src/function_view.coffee'
     'src/boolean_view.coffee'
 

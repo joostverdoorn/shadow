@@ -1,27 +1,28 @@
-class ArrayView extends ExpandableView
+class EnumerableView extends ExpandableView
 
   @setComponent
     html:
       "div.shadow-abstract-view
           .shadow-expandable-view
-          .shadow-array-view":
+          .shadow-enumerable-view":
             "table": [
               { "thead[rv-on-click='toggle']":
                   "tr":
-                    "td[colspan='2']": "Array"
+                    "td[colspan='2']": "{ name }"
               }
 
               { "tbody[rv-if='expanded']": {
                   "tr[rv-each-entry='item']": [
                     { "td.key[rv-text='index']": "" }
-                    { "td.value[rv-view='entry']": "" }
+                    { "td.value[rv-view='entry'][rv-on-dblclick='toggleEditable']": "" }
+                    { "td.value.editor": "input[rv-eval='entry']": "" }
                   ]
                 }
               }
             ]
 
     css:
-      ".shadow-array-view":
+      ".shadow-enumerable-view":
 
         "box-shadow": "0 0 .5em rgba(0, 0, 0, .3)"
         "max-height": "100%"
@@ -40,17 +41,26 @@ class ArrayView extends ExpandableView
               "margin": "0"
               "padding": ".5em"
 
-
           "> thead":
             "color": "#eeeeec"
             "background-color": "#3465a4"
 
           "> tbody":
             "> tr":
+              "&[data-editable='true']":
+                "> td.editor":
+                  "display": "inherit"
 
-              "border-top": "1px solid #555753"
-              "&:not(:first-child)":
-                "border-bottom": "1px solid #555753"
+                "> td:not(.editor)":
+                  "disply": "hidden"
+
+              "&:not([data-editable='true'])":
+                "> td:not(.editor)":
+                  "display": "inherit"
+
+                "> td.editor":
+                  "disply": "hidden"
+
               "&:nth-child(even)":
                 "background": "rgba(0, 0, 0, .1)"
 
@@ -66,3 +76,17 @@ class ArrayView extends ExpandableView
 
                 "&.value":
                   "color": "blue"
+
+
+
+  constructor: ( item ) ->
+
+
+    @exports ||= {}
+    @exports.name ||= item.constructor.name
+    @exports.toggleEditable = @toggleEditable
+
+    super item
+
+  toggleEditable: ( event ) ->
+    event.srcElement.parentElement.setAttribute('data-editable')

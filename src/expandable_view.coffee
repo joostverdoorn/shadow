@@ -11,6 +11,7 @@ class ExpandableView extends AbstractView
 
     css:
       ".shadow-expandable-view":
+        "transition": "width 1s ease-in-out"
 
         ".shadow-toggle":
           "cursor": "pointer"
