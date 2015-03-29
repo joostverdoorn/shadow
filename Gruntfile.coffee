@@ -16,6 +16,10 @@ module.exports = ( grunt ) ->
     'number_view'
     'root_view'
 
+    'backbone/backbone_model_view'
+    'backbone/backbone_collection_view'
+    'backbone/backbone_view_view'
+
     'utils/rivets_shadow'
   ]
 
@@ -48,6 +52,7 @@ module.exports = ( grunt ) ->
     return optionsRef
 
   # Configure all the tasks!
+
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
@@ -163,7 +168,6 @@ module.exports = ( grunt ) ->
   grunt.registerTask 'perf',    ['clean', 'dist', 'coffee:perf' ,'benchmark:default']
   grunt.registerTask 'test',    ['spec', 'browserify:istanbul', 'jasmine:lcovonly']
   grunt.registerTask 'cov',     ['spec', 'browserify:istanbul', 'jasmine:html']
-
 
 # module.exports = ( grunt ) ->
 #   srcs = [

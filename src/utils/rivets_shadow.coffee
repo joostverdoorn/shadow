@@ -5,7 +5,7 @@ callbacks = new Map()
 rivets.adapters['.'] =
   # Yes, a bit hacky, but this will do for now.
   observe: (obj, keypath, callback) ->
-    console.log obj, keypath, callback
+    # console.log obj, keypath, callback
 
     fn = ( events ) ->
       callback() for event in events when event.name is keypath
@@ -25,7 +25,7 @@ rivets.adapters['.'] =
       Object.unobserve(obj, fn)
 
   get: (obj, keypath) ->
-    console.log keypath, obj
+    # console.log keypath, obj
     return obj[keypath]
 
   set: (obj, keypath, value) ->
@@ -37,7 +37,7 @@ rivets.binders['each-*'] =
   function: true
 
   bind: (el) ->
-    console.log 'bind'
+    # console.log 'bind'
     @exports = new Map()
 
     unless @marker?
@@ -56,14 +56,14 @@ rivets.binders['each-*'] =
     return;
 
   unbind: (el) ->
-    console.log 'unbind'
+    # console.log 'unbind'
 
     keys = Object.keys(@views)
     for key in keys
       @binder.delete.call @, key
 
   routine: (el, collection = []) ->
-    console.log 'routine'
+    # console.log 'routine'
 
     modelName = @args[0]
     @el = el
@@ -78,7 +78,7 @@ rivets.binders['each-*'] =
       @binder.add.call @, key, @collection[key]
 
     Object.observe @collection, ( events ) =>
-      for event in events
+      events.forEach (event) =>
         eventKey = event.name
         eventModel = event.object[event.name]
 
@@ -89,10 +89,7 @@ rivets.binders['each-*'] =
           when 'delete'
             @binder.delete.call @, eventKey, eventModel
           when 'update'
-            @binder.delete.call @, key
-            @binder.add.call @, key, eventModel
-            # console.log key, eventKey
-            # @exports.get(key)[eventKey] = eventModel
+            @views[eventKey].models.entry = eventModel
 
   add: ( key, model ) ->
     modelName = @args[0]
@@ -107,7 +104,7 @@ rivets.binders['each-*'] =
         eventKey = event.name
         eventModel = event.object[event.name]
 
-        console.log eventKey, eventModel, event
+        # console.log eventKey, eventModel, event
         @collection[key] = eventModel
 
     # Object.observe @collection, (events) =>
@@ -173,3 +170,22 @@ rivets.binders.eval =
 
   routine: ( el, item ) ->
     el.value = item
+
+rivets.adapters[':'] =
+  subscribe: ( obj, keypath, callback ) ->
+    if (obj instanceof Backbone.Collection)
+      obj.on('add remove reset', callback)
+
+    obj.on('change:' + keypath, callback);
+
+  unsubscribe: ( obj, keypath, callback ) ->
+    if obj instanceof Backbone.Collection
+      obj.off('add remove reset', callback)
+
+    obj.off('change:' + keypath, callback)
+
+  read: ( obj, keypath ) ->
+    return if obj instanceof Backbone.Collection then obj.models else obj.get(keypath)
+
+  publish: ( obj, keypath, value ) ->
+    obj.set(keypath, value)

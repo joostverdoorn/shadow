@@ -23,8 +23,10 @@ class RootView extends ExpandableView
           "width":      "100%"
           "height":     "100%"
 
-          "background": "rgba(0, 0, 0, .6)"
+          "background": "rgba(0, 0, 0, .6) fixed"
           "text-align": "center"
+
+          "z-index": 10000
 
         "&.child, >.child":
           "padding": ".5em"

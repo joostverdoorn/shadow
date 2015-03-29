@@ -26,7 +26,7 @@ class EnumerableView extends ExpandableView
     css:
       ".shadow-enumerable-view":
 
-        "box-shadow": "0 0 .5em rgba(0, 0, 0, .3)"
+        "box-shadow": "0 0 .8em rgba(0, 0, 0, .2)"
         "max-height": "100%"
         "overflow-x": "overlay"
 
@@ -41,7 +41,7 @@ class EnumerableView extends ExpandableView
           "> * > tr":
             "> td":
               "margin": "0"
-              "padding": ".5em"
+              "padding": ".3em .3em .3em  .5em"
 
           "> thead":
             "color": "#eeeeec"
@@ -82,8 +82,6 @@ class EnumerableView extends ExpandableView
 
 
   constructor: ( item ) ->
-
-
     @exports ||= {}
     @exports.name ||= item.constructor.name
     @exports.toggleEditable = @toggleEditable

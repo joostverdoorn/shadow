@@ -29,4 +29,9 @@ Shadow.EnumerableView = require('./enumerable_view')
 Shadow.ExpandableView = require('./expandable_view')
 Shadow.RootView       = require('./root_view')
 
+Shadow.Backbone       =
+  CollectionView:       require('./backbone/backbone_collection_view')
+  ModelView:            require('./backbone/backbone_model_view')
+  ViewView:             require('./backbone/backbone_view_view')
+
 module.exports = Shadow
