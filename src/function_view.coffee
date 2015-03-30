@@ -1,3 +1,5 @@
+EnumerableView = require('./enumerable_view')
+
 class FunctionView extends EnumerableView
 
   @setComponent
@@ -43,3 +45,5 @@ class FunctionView extends EnumerableView
     @exports ||= {}
     @exports.name ||= item.name
     super item
+
+module.exports = FunctionView

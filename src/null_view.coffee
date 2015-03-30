@@ -1,3 +1,5 @@
+AbstractView = require('./abstract_view')
+
 class NullView extends AbstractView
 
   @setComponent
@@ -9,3 +11,4 @@ class NullView extends AbstractView
       ".shadow-null-view":
         "color": "#fcaf3e"
 
+module.exports = NullView

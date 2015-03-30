@@ -1,3 +1,5 @@
+AbstractView = require('./abstract_view')
+
 class UndefinedView extends AbstractView
 
   @setComponent
@@ -9,4 +11,4 @@ class UndefinedView extends AbstractView
       ".shadow-undefined-view":
         "color": "#fcaf3e"
 
-
+module.exports = UndefinedView

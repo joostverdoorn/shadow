@@ -1,3 +1,5 @@
+ExpandableView = require('./expandable_view')
+
 class EnumerableView extends ExpandableView
 
   @setComponent
@@ -90,3 +92,5 @@ class EnumerableView extends ExpandableView
 
   toggleEditable: ( event ) ->
     event.srcElement.parentElement.setAttribute('data-editable')
+
+module.exports = EnumerableView

@@ -1,3 +1,5 @@
+ExpandableView = require('./expandable_view')
+
 class RootView extends ExpandableView
 
   @setComponent
@@ -29,3 +31,4 @@ class RootView extends ExpandableView
           "display": "inline-block"
           "background-color": "#2e3436"
 
+module.exports = RootView

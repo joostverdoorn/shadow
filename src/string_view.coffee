@@ -1,3 +1,5 @@
+AbstractView = require('./abstract_view')
+
 class StringView extends AbstractView
 
   @setComponent
@@ -9,3 +11,5 @@ class StringView extends AbstractView
       ".shadow-string-view":
         "color": "#fce94f"
         "max-width": "10em"
+
+module.exports = StringView

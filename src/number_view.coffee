@@ -1,3 +1,5 @@
+AbstractView = require('./abstract_view')
+
 class NumberView extends AbstractView
 
   @setComponent
@@ -9,3 +11,5 @@ class NumberView extends AbstractView
       ".shadow-number-view":
         "color": "#ad7fa0"
         # "font-weight": "bold"
+
+module.exports = NumberView

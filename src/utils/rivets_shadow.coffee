@@ -1,3 +1,5 @@
+factory = require('../factory')
+
 callbacks = new Map()
 
 rivets.adapters['.'] =
@@ -156,7 +158,7 @@ rivets.binders.view =
 
   routine: ( el, item ) ->
     el.innerHTML = ''
-    view = Shadow.createView(item)
+    view = factory(item)
     el.appendChild(view.element)
 
 rivets.binders.eval =

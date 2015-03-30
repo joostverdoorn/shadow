@@ -1,3 +1,5 @@
+AbstractView = require('./abstract_view')
+
 class ExpandableView extends AbstractView
 
 
@@ -45,3 +47,5 @@ class ExpandableView extends AbstractView
     if @exports.expanded
       @collapse()
     else @expand()
+
+module.exports = ExpandableView

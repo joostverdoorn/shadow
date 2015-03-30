@@ -1,7 +1,9 @@
+absurd = require('./absurd')
+
 class AbstractView
 
   @setComponent: ( component ) ->
-    @component = Shadow.absurd.component(@name, component)()
+    @component = absurd.component(@name, component)()
     @component.populate()
 
 
@@ -33,3 +35,4 @@ class AbstractView
     rivets.bind(@element, @exports)
 
 
+module.exports = AbstractView

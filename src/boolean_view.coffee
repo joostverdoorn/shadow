@@ -1,3 +1,5 @@
+AbstractView = require('./abstract_view')
+
 class BooleanView extends AbstractView
 
   @setComponent
@@ -8,3 +10,5 @@ class BooleanView extends AbstractView
     css:
       ".shadow-boolean-view":
         "color": "#ef2929"
+
+module.exports = BooleanView
