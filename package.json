@@ -1,0 +1,61 @@
+{
+  "name": "shadowjs",
+  "description": "Reactive async operations",
+  "version": "0.5.2",
+  "authors": [
+    "Joost Verdoorn",
+    "Steffan Sluis"
+  ],
+  "main": "dist/shadow.js",
+  "browser": "dist/shadow.browser.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "reactive",
+    "functional",
+    "async",
+    "observable",
+    "immutable",
+    "iteration",
+    "iterator",
+    "lazy",
+    "store",
+    "list",
+    "flux",
+    "promise",
+    "typescript"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joostverdoorn/shadow.git"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.1.0",
+    "babel-plugin-transform-async-to-generator": "^6.1.18",
+    "babel-plugin-transform-runtime": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "blue-tape": "^0.1.10",
+    "faucet": "0.0.1",
+    "glob": "^6.0.1",
+    "nyc": "^4.0.1",
+    "tap": "github:isaacs/node-tap",
+    "typescript": "^1.8.0-dev.20151115",
+    "watch": "^0.16.0",
+    "webpack": "^1.12.6"
+  },
+  "scripts": {
+    "ts": "tsc",
+    "dist": "tsc && webpack --config webpack.src.config.js",
+    "test": "tsc && (nyc --require babel-core/register tap -R tap test/shadow.js); STATUS=$?; if [ $STATUS != 0 ]; then echo -e '\\u0007'; fi; exit $STATUS",
+    "coverage": "npm test & nyc report --reporter=text-lcov | coveralls",
+    "watch": "tsc -w & webpack -w --config webpack.src.config.js",
+    "watch-test": "npm run watch & watch 'npm test' test",
+    "d": "npm run dist",
+    "t": "npm run test",
+    "w": "npm run watch",
+    "wt": "npm run watch-test"
+  }
+}
