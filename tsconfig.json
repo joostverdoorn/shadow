@@ -13,6 +13,7 @@
         "src/**/*.ts"
     ],
     "files": [
+        "src/dom_store.ts",
         "src/keyboard.ts",
         "src/mouse.ts",
         "src/shadow.ts"
